@@ -20,3 +20,12 @@ To use, point lifetimefixDir.sh to the directory containing the LHE files to be 
 	chmod +x lifetimefixDir.sh
 	./lifetimefixDir.sh <Directory of LHE files> <Proper lifetime in µm>
 
+## Fix scale in MCFM:
+Requires a ROOT installation to run.
+
+This script was written to fix the scale of MCFM’s running scale in gg(H)ZZ production for hadronization in PYTHIA6. For version 6.7, the value of SCALUP in an event with running scale has a value of (mZZ)/2, which causes a disagreement when hadronized. By modifying each scale to be mZZ, the expected behavior is recovered. _NOTE: This code is explicitly tuned for this case and may not work in any other scenario._
+
+To use, point scalefixDir.sh to the directory containing the LHE files to be altered. This will change ALL LHE files in said directory. 
+
+	chmod +x scalefixDir.sh
+	./scalefixDir.sh <Directory of LHE files>
